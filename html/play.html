@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>全网音乐解析_一键解析音乐下载地址</title>
+<meta name="description" content="全网音乐解析工具，输入歌曲 ID 即可获取各品质下载链接，支持 MP3 128k、192k、320k 及 FLAC 无损品质，在线免费使用。">
+<meta name="keywords" content="全网音乐解析,全网歌曲下载,全网音乐下载链接,歌曲解析,MP3下载,FLAC无损下载,在线音乐解析,全网ID解析">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="全网音乐解析 500365.xyz 一键解析音乐下载地址">
+<meta property="og:description" content="输入歌曲 ID，选择品质，即可获取下载链接，支持 MP3 与 FLAC 无损。">
+<script>
+// PC设备强制重定向到桌面版
+(function(){
+  var isMobile=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  if(isMobile){
+    window.location.href='/';
+    return;
+  }
+})();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"全网音乐解析","applicationCategory":"MultimediaApplication","operatingSystem":"Web","inLanguage":"zh-CN","offers":{"@type":"Offer","price":"0","priceCurrency":"CNY"}}
+</script>
+<script>
+(function(){var s=localStorage.getItem('theme');if(s){document.documentElement.setAttribute('data-theme',s)}else{document.documentElement.setAttribute('data-theme','dark')}})();
+</script>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- 顶栏 -->
+  <header class="header">
+    <div class="header-brand">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      </div>
+      <span class="header-title">全网音乐解析 500365.xyz</span>
+    </div>
+    <button class="icon-btn" id="themeToggle" title="切换主题">
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.2" y1="4.2" x2="5.6" y2="5.6"/><line x1="18.4" y1="18.4" x2="19.8" y2="19.8"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.2" y1="19.8" x2="5.6" y2="18.4"/><line x1="18.4" y1="5.6" x2="19.8" y2="4.2"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </header>
+
+  <!-- Tab 导航 -->
+  <nav class="tabs-nav">
+    <button class="tab active" data-mode="search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      搜索
+    </button>
+    <button class="tab" data-mode="resolve" style="display:none;overflow:hidden;opacity:0;width:0;height:0;" >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      解析
+    </button>
+    <button class="tab" data-mode="mv" style="display:none;overflow:hidden;opacity:0;width:0;height:0;" >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+      MV解析
+    </button>
+    <button class="tab" data-mode="artist">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      歌手
+    </button>
+    <button class="tab" data-mode="album">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+      专辑
+    </button>
+    <button class="tab" data-mode="playlist">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      歌单
+    </button>
+    <button class="tab" data-mode="mplayer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+      音乐播放器
+      <span class="tab-playing" id="mpTabPlaying"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+      <span class="tab-badge" id="mpTabBadge"></span>
+    </button>
+    <button class="tab" data-mode="vplayer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+      MV播放器
+      <span class="tab-playing" id="vpTabPlaying"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+      <span class="tab-badge" id="vpTabBadge"></span>
+    </button>
+  </nav>
+
+  <!-- 解析面板 -->
+  <section class="panel hidden" id="panel-resolve">
+    <div class="card">
+      <form id="form" autocomplete="off">
+        <div class="form-grid">
+          <div class="field grow">
+            <label for="song_id">链接或 ID</label>
+            <input id="song_id" type="text" placeholder="粘贴歌曲链接或输入 ID" required>
+          </div>
+          <div class="field">
+            <label>&nbsp;</label>
+            <button class="btn-grad" id="btn" type="submit">解析</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="result" id="result">
+      <div class="alert" id="errbox" style="display:none"></div>
+      <div class="reload-hint" id="reloadHint" style="display:none"></div>
+      <div id="songBox"></div>
+    </div>
+  </section>
+
+  <!-- 搜索面板 -->
+  <section class="panel" id="panel-search">
+    <div class="card">
+      <form id="searchForm" autocomplete="off">
+        <div class="form-grid search-grid">
+          <div class="field grow">
+            <label for="searchKeyword">关键词</label>
+            <input id="searchKeyword" type="text" placeholder="输入歌曲名称、歌手或专辑名" required>
+          </div>
+          <div class="field">
+            <label for="searchType">类型</label>
+            <select id="searchType">
+              <option value="1" selected>歌曲</option>
+              <option value="100">歌手</option>
+              <option value="10">专辑</option>
+              <option value="1000">歌单</option>
+              <option value="1004">MV</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="searchLimit">每页</label>
+            <select id="searchLimit">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30" selected>30</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>&nbsp;</label>
+            <button class="btn-grad" id="searchBtn" type="submit">搜索</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="result" id="searchResult">
+      <div class="alert" id="searchErrbox" style="display:none"></div>
+      <div class="reload-hint" id="searchReloadHint" style="display:none"></div>
+      <div class="summary" id="searchSummary"></div>
+      <div class="toolbar">
+        <div class="seg" id="viewModes">
+          <button class="seg-btn active" data-view="waterfall" title="瀑布流"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></button>
+          <button class="seg-btn" data-view="compact" title="紧凑"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></button>
+          <button class="seg-btn" data-view="list" title="列表"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></button>
+        </div>
+        <div class="pager" id="pagerTop"></div>
+      </div>
+      <div class="list" id="searchList"></div>
+      <div class="pager" id="pagerBottom"></div>
+    </div>
+  </section>
+
+  <!-- 歌手详情面板（独立 tab） -->
+  <section class="panel hidden" id="panel-artist">
+    <div class="card detail-head-card">
+      <div id="artistHead"></div>
+    </div>
+    <div class="result" id="artistResult">
+      <div class="alert" id="artistErrbox" style="display:none"></div>
+      <div class="reload-hint" id="artistReloadHint" style="display:none"></div>
+      <div id="artistBody"></div>
+    </div>
+  </section>
+
+  <!-- 专辑详情面板（独立 tab） -->
+  <section class="panel hidden" id="panel-album">
+    <div class="card detail-head-card">
+      <div id="albumHead"></div>
+    </div>
+    <div class="result" id="albumResult">
+      <div class="alert" id="albumErrbox" style="display:none"></div>
+      <div class="reload-hint" id="albumReloadHint" style="display:none"></div>
+      <div id="albumBody"></div>
+    </div>
+  </section>
+
+  <!-- 歌单详情面板（独立 tab） -->
+  <section class="panel hidden" id="panel-playlist">
+    <div class="card detail-head-card">
+      <div id="playlistHead"></div>
+    </div>
+    <div class="result" id="playlistResult">
+      <div class="alert" id="playlistErrbox" style="display:none"></div>
+      <div class="reload-hint" id="playlistReloadHint" style="display:none"></div>
+      <div id="playlistBody"></div>
+    </div>
+  </section>
+
+  <!-- MV解析面板 -->
+  <section class="panel hidden" id="panel-mv">
+    <div class="card">
+      <form id="mvForm" autocomplete="off">
+        <div class="form-grid">
+          <div class="field grow">
+            <label for="mv_id">MV 链接或 ID</label>
+            <input id="mv_id" type="text" placeholder="粘贴 MV 链接或输入 ID" required>
+          </div>
+          <div class="field">
+            <label>&nbsp;</label>
+            <button class="btn-grad" id="mvBtn" type="submit">解析MV</button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="result" id="mvResult">
+      <div class="alert" id="mvErrbox" style="display:none"></div>
+      <div id="mvBox"></div>
+    </div>
+  </section>
+
+  <!-- 音乐播放器面板 -->
+  <section class="panel hidden" id="panel-mplayer">
+    <div class="card player-card">
+      <div class="player-main">
+        <div class="player-cover-wrap">
+          <img class="player-cover" id="mpCover" alt="">
+        </div>
+        <div class="player-info">
+          <div class="player-title" id="mpTitle">未播放</div>
+          <div class="player-artist" id="mpArtist">-</div>
+          <div class="player-quality-row">
+            <label class="mp-q-label">音质</label>
+            <select id="mpQuality">
+              <option value="128000">普通 128k</option>
+              <option value="192000">标准 192k</option>
+              <option value="320000" selected>高品 320k</option>
+              <option value="3200000">无损 FLAC</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="player-controls">
+        <button class="pc-btn" id="mpMute" title="静音"><svg class="ic-vol" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3z"/><path class="ic-vol-on" d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <button class="pc-btn" id="mpPrev" title="上一首"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg></button>
+        <button class="pc-btn pc-play" id="mpPlay" title="播放/暂停"><svg class="ic-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg></button>
+        <button class="pc-btn" id="mpNext" title="下一首"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg></button>
+        <button class="pc-btn" id="mpMode" title="播放模式"><svg class="ic-mode" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></button>
+      </div>
+      <div class="player-progress">
+        <span class="pp-time" id="mpCur">0:00</span>
+        <div class="pp-bar" id="mpBar"><div class="pp-fill" id="mpFill"></div><div class="pp-thumb" id="mpThumb"></div></div>
+        <span class="pp-time" id="mpDur">0:00</span>
+      </div>
+      <audio id="mpAudio" preload="auto"></audio>
+      <div class="random-row">
+        <span class="random-label">本站 500365.xyz 免费听歌网站，如果您花钱买到本站 500365.xyz 域名，建议立即申请退款。</span>
+        <div style="overflow:hidden;opacity:0;width:0;height:0;"><button class="rand-btn" id="randSong" type="button">随机听歌</button>
+        <button class="rand-btn" id="randArtist" type="button">随机歌手</button>
+        <button class="rand-btn" id="randAlbum" type="button">随机专辑</button></div>
+      </div>
+    </div>
+    <div class="card lyric-card" id="mpLyricCard">
+      <div class="lyric-head">
+        <div class="lyric-title">歌词</div>
+        <div class="lyric-ctrl">
+          <button id="mpLyricCopy" title="复制全部歌词"><svg viewBox="0 0 32 32" style="padding:6px 0 0 6px;" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+          <span class="lyric-sep">|</span>
+          <button id="mpLyricFontMinus" title="缩小字体">A-</button>
+          <button id="mpLyricFontPlus" title="放大字体">A+</button>
+          <span class="lyric-sep">|</span>
+          <button id="mpLyricMinus" title="减少行数">－</button>
+          <span id="mpLyricLines">6</span>
+          <button id="mpLyricPlus" title="增加行数">＋</button>
+          <button id="mpLyricToggle" title="显示/关闭歌词">歌词</button>
+        </div>
+      </div>
+      <div class="lyric-body" id="mpLyricBody"></div>
+    </div>
+    <div class="card playlist-card">
+      <div class="playlist-head">
+        <div class="playlist-title">播放列表</div>
+        <div class="playlist-actions">
+          <button class="pl-act" id="mpCollapse" title="收起/展开列表">收起</button>
+          <button class="pl-act" id="mpClear">清空</button>
+          <span class="pl-count" id="mpCount">0 首</span>
+        </div>
+      </div>
+      <div class="playlist-body" id="mpList"></div>
+    </div>
+  </section>
+
+  <!-- MV播放器面板 -->
+  <section class="panel hidden" id="panel-vplayer">
+    <div class="card vplayer-card">
+      <div class="vplayer-main">
+        <video id="vpVideo" controls preload="auto" playsinline></video>
+        <div class="vplayer-overlay" id="vpOverlay">
+          <div class="vplayer-empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            <div>请从 MV解析 或 搜索 添加 MV 到播放器</div>
+          </div>
+        </div>
+      </div>
+      <div class="vplayer-info">
+        <div class="vplayer-title" id="vpTitle">未播放</div>
+        <div class="vplayer-artist" id="vpArtist">-</div>
+        <div class="vplayer-quality-row">
+          <label class="vp-q-label">画质</label>
+          <select id="vpQuality"></select>
+        </div>
+      </div>
+      <div class="player-controls">
+        <button class="pc-btn" id="vpMute" title="静音"><svg class="ic-vol" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3z"/><path class="ic-vol-on" d="M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+        <button class="pc-btn" id="vpPrev" title="上一个"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg></button>
+        <button class="pc-btn pc-play" id="vpPlay" title="播放/暂停"><svg class="ic-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg></button>
+        <button class="pc-btn" id="vpNext" title="下一个"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM6 6l8.5 6L6 18z"/></svg></button>
+        <button class="pc-btn" id="vpMode" title="播放模式"><svg class="ic-mode" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></button>
+      </div>
+    </div>
+    <div class="card lyric-card" id="vpLyricCard">
+      <div class="lyric-head">
+        <div class="lyric-title">歌词</div>
+        <div class="lyric-ctrl">
+          <button id="vpLyricCopy" title="复制全部歌词"><svg viewBox="0 0 32 32" style="padding:6px 0 0 6px;" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></button>
+          <span class="lyric-sep">|</span>
+          <button id="vpLyricFontMinus" title="缩小字体">A-</button>
+          <button id="vpLyricFontPlus" title="放大字体">A+</button>
+          <span class="lyric-sep">|</span>
+          <button id="vpLyricMinus" title="减少行数">－</button>
+          <span id="vpLyricLines">6</span>
+          <button id="vpLyricPlus" title="增加行数">＋</button>
+          <button id="vpLyricToggle" title="显示/关闭歌词">歌词</button>
+        </div>
+      </div>
+      <div class="lyric-body" id="vpLyricBody"></div>
+    </div>
+    <div class="card vplaylist-card">
+      <div class="playlist-head">
+        <div class="playlist-title">MV 播放列表</div>
+        <div class="playlist-actions">
+          <button class="pl-act" id="vpCollapse" title="收起/展开列表">收起</button>
+          <button class="pl-act" id="vpClear">清空</button>
+          <span class="pl-count" id="vpCount">0 个</span>
+        </div>
+      </div>
+      <div class="playlist-body" id="vpList"></div>
+    </div>
+  </section>
+
+
+</div>
+
+<!-- 右侧悬浮按钮 -->
+<div class="float-tools" id="floatTools">
+  <button id="ftTop" title="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg></button>
+  <button id="ftPlay" title="播放/暂停"><svg class="ic-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><svg class="ic-pause" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg></button>
+  <button id="ftBottom" title="去到底部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
+</div>
+
+<script src="/js/script.js"></script>
+<script src="/js/player.js"></script>
+
+
+
+
+
+</body>
+</html>
