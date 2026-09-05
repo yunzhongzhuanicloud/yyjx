@@ -5,7 +5,7 @@ on:
 
 jobs:
   run:
-    runs-on: [self-hosted, Linux, ARM64]
+    runs-on: ubuntu-24.04-arm
     strategy:
       max-parallel: 256
       matrix:
